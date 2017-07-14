@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		gamePramet.SetScore (100);
 	}
 	
 	// Update is called once per frame
@@ -25,9 +25,14 @@ public class GameManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.O)) {
 			NextScene = "gameover";
 		}
-		if (Input.GetKeyDown (KeyCode.C)) {
+		//ｃキー
+		else if (Input.GetKeyDown (KeyCode.C)) {
 			NextScene = "game_comprete";
+		} 
+		else if (Input.GetKey (KeyCode.A)) {
+			gamePramet.AddScore (1000);
 		}
+
 		//シーン切り替え↓
 		if (NextScene.Length > 0) {
 			SceneManager.LoadSceneAsync (NextScene,LoadSceneMode.Additive);
